@@ -6,7 +6,7 @@ import (
 	"github.com/soubikbhuiwk007/ghve/vm/config"
 )
 
-func Pwd(args ...string) {
+func Pwd(args []string) {
 	fmt.Println(config.CWD)
 }
 

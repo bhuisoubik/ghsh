@@ -2,7 +2,6 @@ package vm
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/soubikbhuiwk007/ghve/commands"
 	"github.com/soubikbhuiwk007/ghve/exec"
@@ -17,9 +16,6 @@ func VirtualEnv() {
 	for {
 		fmt.Print(pmpt)
 		fmt.Scanln(&command)
-		arg := GetArgs(command)
-		exec.Exec(arg...)
-		fmt.Println("Exit Status 0")
-		time.Sleep(1e+9)
+		exec.Exec(command)
 	}
 }

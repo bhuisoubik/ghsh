@@ -6,7 +6,7 @@ import (
 	"github.com/soubikbhuiwk007/ghve/reg"
 )
 
-func Exit(args ...string) {
+func Exit(args []string) {
 	os.Exit(0)
 }
 
