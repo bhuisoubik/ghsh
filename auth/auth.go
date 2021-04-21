@@ -1,11 +1,14 @@
 package auth
 
 import (
+	"context"
 	"fmt"
-	"os"
+	"io/ioutil"
 	"syscall"
 
+	"github.com/google/go-github/v35/github"
 	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/oauth2"
 )
 
 func printGenTokSteps() {
@@ -17,9 +20,32 @@ func Login() {
 	fmt.Print("GitHub Token: ")
 	byteToken, _ := terminal.ReadPassword(int(syscall.Stdin))
 
-	os.Setenv("GHVE_USER_AUTH_TOKEN", string(byteToken))
+	token := string(byteToken)
+	if token == "" {
+		fmt.Println("Prompt cannot be empty")
+	} else {
+		ctx := context.Background()
+		ts := oauth2.StaticTokenSource(
+			&oauth2.Token{AccessToken: token},
+		)
+		tc := oauth2.NewClient(ctx, ts)
+	
+		client := github.NewClient(tc)
+	
+		_, _, err := client.Users.Get(ctx, "")
+		if err != nil {
+			fmt.Printf("\nerror: %v\n", err)
+			fmt.Println("Authentication Failed")
+			return
+		}
+		
+		ioutil.WriteFile("auth/.gh_access_token", []byte(token), 0)
+		fmt.Println("\nAuthentication Successful")
+	}
 }
 
 func Logout() {
-	os.Setenv("GHVE_USER_AUTH_TOKEN", "")
+	ioutil.WriteFile("auth/.gh_access_token", []byte(""), 0)
+	fmt.Println("Logged out successfully")
+	fmt.Println("Run 'ghve auth -login' for re-login")
 }

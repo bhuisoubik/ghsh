@@ -2,6 +2,8 @@ package vm
 
 import (
 	"fmt"
+	"os"
+	"bufio"
 
 	"github.com/soubikbhuiwk007/ghve/commands"
 	"github.com/soubikbhuiwk007/ghve/exec"
@@ -10,12 +12,12 @@ import (
 
 func VirtualEnv() {
 	commands.RegisterAll()
-	var command string
+	var rd = bufio.NewReader(os.Stdin)
 	pmpt := "\n$ ghve: " + config.UserName + " " + config.CWD + " > "
 
 	for {
 		fmt.Print(pmpt)
-		fmt.Scanln(&command)
+		command, _ := rd.ReadString('\n') 
 		exec.Exec(command)
 	}
 }

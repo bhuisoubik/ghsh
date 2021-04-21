@@ -8,10 +8,12 @@ import (
 
 func Exec(c string) {
 	args := GetArgs(c)
-	_, ok := reg.REGISTERED_COMMANDS[args[0]];
-	if ok {
-		reg.REGISTERED_COMMANDS[args[0]](args)
-	} else {
-		fmt.Println("Command not Found")
+	if len(args) > 0 {
+		_, ok := reg.REGISTERED_COMMANDS[args[0]];
+		if ok {
+			reg.REGISTERED_COMMANDS[args[0]](args)
+		} else {
+			fmt.Println("Command not Found")
+		}
 	}
 }
