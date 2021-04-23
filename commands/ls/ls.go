@@ -66,6 +66,8 @@ func Ls(args []string) {
 				fmt.Printf("\t\t%v   %v  %v file(s)\n", *gists[i].Description, *gists[i].ID, len(gists[i].Files))
 			}
 		}
+	} else if args[1] == "man" {
+		fmt.Println("ls:\n\torg <userid>\t:\tList Organisations for a specific User\n\trepo <userid>\t:\tList Repositories for specific user\n\tgist <userid>\t:\tList Public Gist for a specific User")
 	} else {
 		fmt.Println("Invalid Argument")
 	}

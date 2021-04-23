@@ -8,14 +8,18 @@ import (
 )
 
 func Ptoken(args []string) {
-	tok, _ := ioutil.ReadFile("auth/.gh_access_token")
-	if string(tok) == "" {
-		fmt.Println("No Authorised Token")
+	if args[1] == "man" {
+		fmt.Println("Print Authorised token")
 	} else {
-		fmt.Println(string(tok))
+		tok, _ := ioutil.ReadFile("auth/.gh_access_token")
+		if string(tok) == "" {
+			fmt.Println("No Authorised Token")
+		} else {
+			fmt.Println(string(tok))
+		}
 	}
 }
 
 func Register() {
-	reg.RegisterNewCommand("get-token", Ptoken)
+	reg.RegisterNewCommand("get-token",Ptoken)
 }

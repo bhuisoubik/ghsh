@@ -7,7 +7,11 @@ import (
 )
 
 func Pwd(args []string) {
-	fmt.Println(config.CWD)
+	if args[1] == "man" {
+		fmt.Println("Print Working Directory")
+	} else {
+		fmt.Println(config.CWD)
+	}
 }
 
 func Register() {

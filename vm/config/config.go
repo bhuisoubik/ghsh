@@ -24,4 +24,6 @@ func getuserid() **string {
 var (
 	CWD string = "/"
 	UserName string = **getuserid()
+	IsInsideRepo bool = false
+	CurrentRepo string
 )
