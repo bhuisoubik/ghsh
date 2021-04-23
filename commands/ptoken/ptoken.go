@@ -8,15 +8,11 @@ import (
 )
 
 func Ptoken(args []string) {
-	if args[1] == "man" {
-		fmt.Println("Print Authorised token")
+	tok, _ := ioutil.ReadFile("auth/.gh_access_token")
+	if string(tok) == "" {
+		fmt.Println("No Authorised Token")
 	} else {
-		tok, _ := ioutil.ReadFile("auth/.gh_access_token")
-		if string(tok) == "" {
-			fmt.Println("No Authorised Token")
-		} else {
-			fmt.Println(string(tok))
-		}
+		fmt.Println(string(tok))
 	}
 }
 

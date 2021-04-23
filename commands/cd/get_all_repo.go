@@ -9,10 +9,11 @@ import (
 	"golang.org/x/oauth2"
 )
 
-func getRepo() []string {
+var btyeToken, _ = ioutil.ReadFile("auth/.gh_access_token")
+var token = string(btyeToken)
+
+func getAllRepo() []string {
 	repos := make([]string, 0)
-	btyeToken, _ := ioutil.ReadFile("auth/.gh_access_token")
-	token := string(btyeToken)
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
