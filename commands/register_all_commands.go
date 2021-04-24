@@ -1,13 +1,14 @@
 package commands
 
 import (
-	"github.com/soubikbhuiwk007/ghve/commands/exit" // Exit
-	"github.com/soubikbhuiwk007/ghve/commands/ptoken" // PToken
-	"github.com/soubikbhuiwk007/ghve/commands/pwd" // Pwd
-	"github.com/soubikbhuiwk007/ghve/commands/ls" // List
-	"github.com/soubikbhuiwk007/ghve/commands/cd" // Cd
-	"github.com/soubikbhuiwk007/ghve/commands/dir" // Dir
-	"github.com/soubikbhuiwk007/ghve/commands/mkdir" // Dir
+	"github.com/soubikbhuiwk007/ghve/commands/exit" // command: exit
+	"github.com/soubikbhuiwk007/ghve/commands/ptoken" // command: get-token
+	"github.com/soubikbhuiwk007/ghve/commands/pwd" // command: pwd
+	"github.com/soubikbhuiwk007/ghve/commands/ls" // command: ls
+	"github.com/soubikbhuiwk007/ghve/commands/cd" // command: cd
+	"github.com/soubikbhuiwk007/ghve/commands/dir" // command: dir
+	"github.com/soubikbhuiwk007/ghve/commands/mkdir" // command: mkdir
+	"github.com/soubikbhuiwk007/ghve/commands/mkfile" // command: mkfile
 )
 
 func RegisterAll() {
@@ -17,5 +18,6 @@ func RegisterAll() {
 	ls.Register() // List Organistion/Repository/Gist for Any User
 	cd.Register() // Change Directory
 	dir.Register() // List Content inside Directory
-	mkdir.Register() // Make Directory
+	mkdir.Register() // Create a new Directory/Repository
+	mkfile.Register() // Create a new File/Gist
 }

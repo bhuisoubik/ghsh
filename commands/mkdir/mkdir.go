@@ -71,7 +71,7 @@ func Mkdir(args []string) {
 			if err != nil {
 				fmt.Println(err)
 			} else {
-				fmt.Printf("Directory '%v' is created successfully", args[1])
+				fmt.Printf("Directory '%v' is created successfully\n", args[1])
 			}
 		} else {
 			fmt.Println("Invalid Argument")
