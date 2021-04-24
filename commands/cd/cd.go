@@ -2,8 +2,8 @@ package cd
 
 import (
 	"context"
-	"strings"
 	"fmt"
+	"strings"
 
 	"github.com/google/go-github/v35/github"
 	"github.com/soubikbhuiwk007/ghve/reg"
@@ -18,6 +18,28 @@ func contains(arr []string, find string) bool {
 		}
 	}
 	return false
+}
+
+var token = config.AuthToken
+
+func getAllRepo() []string {
+	repos := make([]string, 0)
+	ctx := context.Background()
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{AccessToken: token},
+	)
+	tc := oauth2.NewClient(ctx, ts)
+	client := github.NewClient(tc)
+	repoList, _, err := client.Repositories.List(ctx, "", nil)
+
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		for i := 0; i < len(repoList); i++ {
+			repos = append(repos, *repoList[i].Name)
+		}
+	}
+	return repos
 }
 
 func movPathBack(c_path string) string {
@@ -35,7 +57,6 @@ func movPathBack(c_path string) string {
 
 	return c_path
 }
-var repo_path string = "/"
 
 func getRepoNameFromPath(path string) string {
 	return strings.Split(path, "/")[1]
@@ -69,9 +90,9 @@ func Cd(args []string) {
 			config.IsInsideRepo = true
 			config.CurrentRepo = args[1]
 		} else if config.IsInsideRepo {
-			if contains(getDirContent(repo_path), args[1]) {
+			if contains(getDirContent(config.Repo_Path), args[1]) {
 				config.CWD += args[1] + "/"
-				repo_path += args[1] + "/"
+				config.Repo_Path += args[1] + "/"
 			} else {
 				fmt.Printf("'%v' no such directory\n", args[1])
 			}
@@ -80,7 +101,7 @@ func Cd(args []string) {
 		}
 	} else if config.IsInsideRepo && args[1] == ".." {
 		config.CWD = movPathBack(config.CWD)
-		repo_path = movPathBack(repo_path)
+		config.Repo_Path = movPathBack(config.Repo_Path)
 		if config.CWD == "/" {
 			config.IsInsideRepo = false
 			config.CurrentRepo = ""

@@ -2,17 +2,17 @@ package ptoken
 
 import (
 	"fmt"
-	"io/ioutil"
 
 	"github.com/soubikbhuiwk007/ghve/reg"
+	"github.com/soubikbhuiwk007/ghve/vm/config"
 )
 
 func Ptoken(args []string) {
-	tok, _ := ioutil.ReadFile("auth/.gh_access_token")
-	if string(tok) == "" {
+	token := config.AuthToken
+	if token == "" {
 		fmt.Println("No Authorised Token")
 	} else {
-		fmt.Println(string(tok))
+		fmt.Println(token)
 	}
 }
 

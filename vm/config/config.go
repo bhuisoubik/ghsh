@@ -21,9 +21,17 @@ func getuserid() **string {
 	return &user.Login
 }
 
+func getAuthToken() string {
+	byteToken, _ := ioutil.ReadFile("auth/.gh_access_token")
+	token := string(byteToken)
+	return token
+}
+
 var (
 	CWD string = "/"
 	UserName string = **getuserid()
 	IsInsideRepo bool = false
 	CurrentRepo string
+	AuthToken string = getAuthToken()
+	Repo_Path string = "/"
 )

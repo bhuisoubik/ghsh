@@ -13,9 +13,9 @@ import (
 func VirtualEnv() {
 	commands.RegisterAll()
 	var rd = bufio.NewReader(os.Stdin)
-
+	fmt.Println("Github Vitual Environment (1.0.0)\nCopyright Soubik Bhui 2021")
 	for {
-		pmpt := "\n$ ghve: " + config.UserName + " " + config.CWD + " > "
+		pmpt := "\n$ ghve: @" + config.UserName + " " + config.CWD + " > "
 		fmt.Print(pmpt)
 		command, _ := rd.ReadString('\n') 
 		exec.Exec(command)
