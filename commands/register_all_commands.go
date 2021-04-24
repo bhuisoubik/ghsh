@@ -7,6 +7,7 @@ import (
 	"github.com/soubikbhuiwk007/ghve/commands/ls" // List
 	"github.com/soubikbhuiwk007/ghve/commands/cd" // Cd
 	"github.com/soubikbhuiwk007/ghve/commands/dir" // Dir
+	"github.com/soubikbhuiwk007/ghve/commands/mkdir" // Dir
 )
 
 func RegisterAll() {
@@ -16,4 +17,5 @@ func RegisterAll() {
 	ls.Register() // List Organistion/Repository/Gist for Any User
 	cd.Register() // Change Directory
 	dir.Register() // List Content inside Directory
+	mkdir.Register() // Make Directory
 }
