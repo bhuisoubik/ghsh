@@ -9,7 +9,8 @@ import (
 	"github.com/soubikbhuiwk007/ghve/commands/dir" // command: dir
 	"github.com/soubikbhuiwk007/ghve/commands/mkdir" // command: mkdir <> || <subdirectory>
 	"github.com/soubikbhuiwk007/ghve/commands/mkfile" // command: mkfile <> || <filename>
-	"github.com/soubikbhuiwk007/ghve/commands/rmdir" // command: rmdir <subdirectory>
+	"github.com/soubikbhuiwk007/ghve/commands/rmdir" // command: rmdir <subdirectory|repository>
+	"github.com/soubikbhuiwk007/ghve/commands/rmfile" // command: rmdir <filename|gist-id>
 )
 
 func RegisterAll() {
@@ -22,4 +23,5 @@ func RegisterAll() {
 	mkdir.Register() // Create a new Directory/Repository
 	mkfile.Register() // Create a new File/Gist
 	rmdir.Register() // Remove an existing Directory/Repository
+	rmfile.Register() // Remove an existing File/Gist
 }
