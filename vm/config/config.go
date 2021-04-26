@@ -34,10 +34,8 @@ func GetFirstBranch(repo string) string {
 		&oauth2.Token{AccessToken: AuthToken},
 	)
 	client := github.NewClient(oauth2.NewClient(ctx, ts))
-	branchList,_, _ := client.Repositories.ListBranches(ctx, UserName, repo, nil)
-	if len(branchList) > 0 {
-		br = branchList[0].GetName()
-	}
+	repository,_, _ := client.Repositories.Get(ctx, UserName, repo)
+	br = *repository.DefaultBranch
 	return br
 }
 
