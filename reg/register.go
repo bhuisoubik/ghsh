@@ -1,6 +1,5 @@
 package reg
 
-
 type fn func ([]string)
 
 var REGISTERED_COMMANDS = make(map[string]fn)
