@@ -19,7 +19,9 @@ func Dir(args []string) {
 			&oauth2.Token{AccessToken: token},
 		)
 		client := github.NewClient(oauth2.NewClient(ctx, ts))
-		_, content, _, err := client.Repositories.GetContents(ctx, config.UserName, config.CurrentRepo, config.Repo_Path, nil)
+		_, content, _, err := client.Repositories.GetContents(ctx, config.UserName, config.CurrentRepo, config.Repo_Path, &github.RepositoryContentGetOptions{
+			Ref: config.Branch,
+		})
 		if err != nil {
 			fmt.Println(err)
 		}

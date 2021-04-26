@@ -27,6 +27,20 @@ func getAuthToken() string {
 	return token
 }
 
+func GetFirstBranch(repo string) string {
+	br := ""
+	ctx := context.Background()
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{AccessToken: AuthToken},
+	)
+	client := github.NewClient(oauth2.NewClient(ctx, ts))
+	branchList,_, _ := client.Repositories.ListBranches(ctx, UserName, repo, nil)
+	if len(branchList) > 0 {
+		br = branchList[0].GetName()
+	}
+	return br
+}
+
 var (
 	CWD string = "/"
 	UserName string = **getuserid()
@@ -34,4 +48,5 @@ var (
 	CurrentRepo string
 	AuthToken string = getAuthToken()
 	Repo_Path string = "/"
+	Branch string = ""
 )

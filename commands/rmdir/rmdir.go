@@ -22,7 +22,9 @@ func getAllFiles(dirPath string) ([]string, []string) {
 	)
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
-	_, dirContent, _, err := client.Repositories.GetContents(ctx, config.UserName, config.CurrentRepo, dirPath, nil)
+	_, dirContent, _, err := client.Repositories.GetContents(ctx, config.UserName, config.CurrentRepo, dirPath, &github.RepositoryContentGetOptions{
+		Ref: config.Branch,
+	})
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -67,6 +69,7 @@ func Rmdir(args []string) {
 				opts := &github.RepositoryContentFileOptions{
 					SHA: &shaList[i],
 					Message: &msg,
+					Branch: &config.Branch,
 				}
 				_, _, err := client.Repositories.DeleteFile(ctx, config.UserName, config.CurrentRepo, fList[i], opts)
 				if err != nil {

@@ -79,6 +79,7 @@ func Mkfile(args []string) {
 			opts := github.RepositoryContentFileOptions{
 				Message: &commitMsg,
 				Content: []byte(" "),
+				Branch: &config.Branch,
 			}
 			_, _, err := client.Repositories.CreateFile(ctx, config.UserName, config.CurrentRepo, filePath, &opts)
 			if err != nil {

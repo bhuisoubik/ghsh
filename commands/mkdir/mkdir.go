@@ -66,6 +66,7 @@ func Mkdir(args []string) {
 			opts := github.RepositoryContentFileOptions{
 				Message: &msg,
 				Content: []byte(" "),
+				Branch: &config.Branch,
 			}
 			_, _, err := client.Repositories.CreateFile(ctx, config.UserName, config.CurrentRepo, folderPath, &opts)
 			if err != nil {

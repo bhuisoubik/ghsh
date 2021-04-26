@@ -70,7 +70,9 @@ func getDirContent(path string) []string{
 	)
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
-	_, dirContent, _, err  := client.Repositories.GetContents(ctx, config.UserName, getRepoNameFromPath(config.CWD), path, nil)
+	_, dirContent, _, err  := client.Repositories.GetContents(ctx, config.UserName, getRepoNameFromPath(config.CWD), path, &github.RepositoryContentGetOptions{
+		Ref: config.Branch,
+	})
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -89,6 +91,7 @@ func Cd(args []string) {
 			config.CWD += args[1] + "/"
 			config.IsInsideRepo = true
 			config.CurrentRepo = args[1]
+			config.Branch = config.GetFirstBranch(args[1])
 		} else if config.IsInsideRepo {
 			if contains(getDirContent(config.Repo_Path), args[1]) {
 				config.CWD += args[1] + "/"
@@ -103,6 +106,7 @@ func Cd(args []string) {
 		config.CWD = movPathBack(config.CWD)
 		config.Repo_Path = movPathBack(config.Repo_Path)
 		if config.CWD == "/" {
+			config.Branch = ""
 			config.IsInsideRepo = false
 			config.CurrentRepo = ""
 		} else {

@@ -21,7 +21,9 @@ func getSHA(filename string, repoPath string) (string, string) {
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
 	repoPath = string([]byte(repoPath)[1:])
-	_, content, _, err := client.Repositories.GetContents(ctx, config.UserName, config.CurrentRepo, repoPath, nil)
+	_, content, _, err := client.Repositories.GetContents(ctx, config.UserName, config.CurrentRepo, repoPath, &github.RepositoryContentGetOptions{
+		Ref: config.Branch,
+	})
 
 	if err != nil {
 		fmt.Println(err)
@@ -64,6 +66,7 @@ func Rmfile(args []string) {
 			_, _, err := client.Repositories.DeleteFile(ctx, config.UserName, config.CurrentRepo, fp, &github.RepositoryContentFileOptions{
 				Message: &msg,
 				SHA: &sha,
+				Branch: &config.Branch,
 			})
 
 			if err != nil {

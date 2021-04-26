@@ -15,8 +15,11 @@ func VirtualEnv() {
 	var rd = bufio.NewReader(os.Stdin)
 	fmt.Println("Github Vitual Environment (1.0.0)\nCopyright Soubik Bhui 2021")
 	for {
-		pmpt := "\n$ ghve: @" + config.UserName + " " + config.CWD + " > "
-		fmt.Print(pmpt)
+		if config.Branch == "" {
+			fmt.Print("\n$ ghve: @" + config.UserName + " " + config.CWD + " > ")
+		} else {
+			fmt.Print("\n$ ghve: @" + config.UserName + " " + config.CWD + " (" + config.Branch + ") > ")
+		}
 		command, _ := rd.ReadString('\n') 
 		exec.Exec(command)
 	}

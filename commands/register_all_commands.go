@@ -11,6 +11,7 @@ import (
 	"github.com/soubikbhuiwk007/ghve/commands/mkfile" // command: mkfile <> || <filename>
 	"github.com/soubikbhuiwk007/ghve/commands/rmdir" // command: rmdir <subdirectory|repository>
 	"github.com/soubikbhuiwk007/ghve/commands/rmfile" // command: rmdir <filename|gist-id>
+	"github.com/soubikbhuiwk007/ghve/commands/branch" // command: branch <command> <argument>
 )
 
 func RegisterAll() {
@@ -24,4 +25,5 @@ func RegisterAll() {
 	mkfile.Register() // Create a new File/Gist
 	rmdir.Register() // Remove an existing Directory/Repository
 	rmfile.Register() // Remove an existing File/Gist
+	branch.Register() // Manage Branch of Repository
 }
