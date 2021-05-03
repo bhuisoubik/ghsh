@@ -29,16 +29,16 @@ func Login() {
 			&oauth2.Token{AccessToken: token},
 		)
 		tc := oauth2.NewClient(ctx, ts)
-	
+
 		client := github.NewClient(tc)
-	
+
 		_, _, err := client.Users.Get(ctx, "")
 		if err != nil {
 			fmt.Printf("\nerror: %v\n", err)
 			fmt.Println("Authentication Failed")
 			return
 		}
-		
+
 		ioutil.WriteFile("auth/.gh_access_token", []byte(token), 0)
 		fmt.Println("\nAuthentication Successful")
 	}
@@ -47,5 +47,5 @@ func Login() {
 func Logout() {
 	ioutil.WriteFile("auth/.gh_access_token", []byte(""), 0)
 	fmt.Println("Logged out successfully")
-	fmt.Println("Run 'ghve auth -login' for re-login")
+	fmt.Println("Run 'ghsh auth -login' for re-login")
 }

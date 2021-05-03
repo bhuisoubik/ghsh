@@ -2,13 +2,14 @@ package config
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 
 	"github.com/google/go-github/v35/github"
 	"golang.org/x/oauth2"
 )
 
-func getuserid() **string {
+func getuserid() *string {
 	byteToken, _ := ioutil.ReadFile("auth/.gh_access_token")
 	token := string(byteToken)
 	ctx := context.Background()
@@ -18,7 +19,7 @@ func getuserid() **string {
 	
 	client := github.NewClient(oauth2.NewClient(ctx, ts))
 	user, _, _ := client.Users.Get(ctx, "")
-	return &user.Login
+	return user.Login
 }
 
 func getAuthToken() string {
@@ -39,11 +40,15 @@ func GetFirstBranch(repo string) string {
 	return br
 }
 
+func PrintError(msg string) {
+	fmt.Println("Error: "+ msg)
+}
+
 var (
 	CWD string = "/"
-	UserName string = **getuserid()
+	UserName string = *getuserid()
 	IsInsideRepo bool = false
-	CurrentRepo string
+	CurrentRepo string = ""
 	AuthToken string = getAuthToken()
 	Repo_Path string = "/"
 	Branch string = ""

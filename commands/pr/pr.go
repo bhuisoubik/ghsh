@@ -1,5 +1,5 @@
 // Command: pr
-// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+// (c) Soubik Bhui <@soubikbhuiwk007> 2021
 
 package pr
 
@@ -149,7 +149,7 @@ func PullRequest(args []string) {
 				fmt.Print("New Title: ")
 				byteNewTitle, _, _ := rd.ReadLine()
 				title := string(byteNewTitle)
-				prEditted,_,err := client.PullRequests.Edit(ctx, config.UserName, config.CurrentRepo, prInt, &github.PullRequest{
+				prEditted, _, err := client.PullRequests.Edit(ctx, config.UserName, config.CurrentRepo, prInt, &github.PullRequest{
 					Title: &title,
 				})
 
@@ -182,9 +182,9 @@ func PullRequest(args []string) {
 			} else if args[2] == "-m" { // Update MaintainerCanModify
 				rd := bufio.NewReader(os.Stdin)
 				fmt.Print("Maintainer Can Modify ([Y]es | [N]o): ")
-				byteMcm, _, _ := rd.ReadLine()		
+				byteMcm, _, _ := rd.ReadLine()
 				mcm := false
-				if string(byteMcm) == "Y" || string(byteMcm) == "y"	{
+				if string(byteMcm) == "Y" || string(byteMcm) == "y" {
 					mcm = true
 				}
 				prEdit, _, err := client.PullRequests.Edit(ctx, config.UserName, config.CurrentRepo, prInt, &github.PullRequest{
@@ -222,9 +222,9 @@ func PullRequest(args []string) {
 			} else {
 				fmt.Printf("Commits: %v\nAdditions: %v\nDeletions: %v\nChanged Files: %v", *pr.Commits, *pr.Additions, *pr.Deletions, *pr.ChangedFiles)
 			}
-		} else if args[1] == "commits" && config.IsInsideRepo{ // Print all the Commits
+		} else if args[1] == "commits" && config.IsInsideRepo { // Print all the Commits
 			for i := 0; i < i+1; i++ {
-				prListCm, _, err := client.PullRequests.ListCommits(ctx, config.UserName, config.CurrentRepo, prInt ,&github.ListOptions{
+				prListCm, _, err := client.PullRequests.ListCommits(ctx, config.UserName, config.CurrentRepo, prInt, &github.ListOptions{
 					PerPage: 100,
 					Page:    i + 1,
 				})
