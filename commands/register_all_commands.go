@@ -1,21 +1,23 @@
 package commands
 
 import (
-	"github.com/soubikbhuiwk007/ghsh/commands/auth"   // by: @soubikbhuiwk007 command: auth <command>
-	"github.com/soubikbhuiwk007/ghsh/commands/branch" // by: @soubikbhuiwk007 command: branch <command> <argument>
-	"github.com/soubikbhuiwk007/ghsh/commands/cd"     // by: @soubikbhuiwk007 command: cd <subdirectory>
-	"github.com/soubikbhuiwk007/ghsh/commands/dir"    // by: @soubikbhuiwk007 command: dir
-	"github.com/soubikbhuiwk007/ghsh/commands/exit"   // by: @soubikbhuiwk007 command: exit
-	"github.com/soubikbhuiwk007/ghsh/commands/fork"   // by: @soubikbhuiwk007 command: fork <argument>
-	"github.com/soubikbhuiwk007/ghsh/commands/ls"     // by: @soubikbhuiwk007 command: ls <repo|org|gist> <userid>
-	"github.com/soubikbhuiwk007/ghsh/commands/mkdir"  // by: @soubikbhuiwk007 command: mkdir <> || <subdirectory>
-	"github.com/soubikbhuiwk007/ghsh/commands/mkfile" // by: @soubikbhuiwk007 command: mkfile <> || <filename>
-	"github.com/soubikbhuiwk007/ghsh/commands/pr"     // by: @soubikbhuiwk007 command: pr <command> <argument>
-	"github.com/soubikbhuiwk007/ghsh/commands/ptoken" // by: @soubikbhuiwk007 command: get-token
-	"github.com/soubikbhuiwk007/ghsh/commands/pwd"    // by: @soubikbhuiwk007 command: pwd
-	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"  // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
-	"github.com/soubikbhuiwk007/ghsh/commands/rmfile" // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
-	"github.com/soubikbhuiwk007/ghsh/commands/vsn"    // by: @soubikbhuiwk007 command: vsn
+	"github.com/soubikbhuiwk007/ghsh/commands/auth"    // by: @soubikbhuiwk007 command: auth <command>
+	"github.com/soubikbhuiwk007/ghsh/commands/branch"  // by: @soubikbhuiwk007 command: branch <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/cd"      // by: @soubikbhuiwk007 command: cd <subdirectory>
+	"github.com/soubikbhuiwk007/ghsh/commands/dir"     // by: @soubikbhuiwk007 command: dir
+	"github.com/soubikbhuiwk007/ghsh/commands/exit"    // by: @soubikbhuiwk007 command: exit
+	"github.com/soubikbhuiwk007/ghsh/commands/fork"    // by: @soubikbhuiwk007 command: fork <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/ls"      // by: @soubikbhuiwk007 command: ls <repo|org|gist> <userid>
+	"github.com/soubikbhuiwk007/ghsh/commands/mkdir"   // by: @soubikbhuiwk007 command: mkdir <> || <subdirectory>
+	"github.com/soubikbhuiwk007/ghsh/commands/mkfile"  // by: @soubikbhuiwk007 command: mkfile <> || <filename>
+	"github.com/soubikbhuiwk007/ghsh/commands/pr"      // by: @soubikbhuiwk007 command: pr <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/ptoken"  // by: @soubikbhuiwk007 command: get-token
+	"github.com/soubikbhuiwk007/ghsh/commands/pwd"     // by: @soubikbhuiwk007 command: pwd
+	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"   // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
+	"github.com/soubikbhuiwk007/ghsh/commands/rmfile"  // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
+	"github.com/soubikbhuiwk007/ghsh/commands/vsn"     // by: @soubikbhuiwk007 command: vsn
+	"github.com/soubikbhuiwk007/ghsh/commands/about"   // by: @soubikbhuiwk007 command: about
+	"github.com/soubikbhuiwk007/ghsh/commands/commits" // by: @soubikbhuiwk007 command: commits <arguments>
 )
 
 func RegisterAll() {
@@ -34,4 +36,6 @@ func RegisterAll() {
 	pr.Register() // Manage Pull Request
 	vsn.Register() // Version
 	auth.Register() // Authentication (login & logout)
+	about.Register() // About
+	commits.Register() // List Repository Commits (By Specific User)
 }
