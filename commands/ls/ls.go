@@ -1,3 +1,6 @@
+// Command: ls
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package ls
 
 import (
@@ -5,8 +8,8 @@ import (
 	"fmt"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 )
 
 func Ls(args []string) {
@@ -69,7 +72,7 @@ func Ls(args []string) {
 	} else if args[1] == "man" {
 		fmt.Println("ls:\n\torg <userid>\t:\tList Organisations for a specific User\n\trepo <userid>\t:\tList Repositories for specific user\n\tgist <userid>\t:\tList Public Gist for a specific User")
 	} else {
-		fmt.Println("Invalid Argument")
+		config.PrintError("Invalid Argument")
 	}
 }
 

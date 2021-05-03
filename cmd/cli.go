@@ -1,49 +1,18 @@
 package cmd
 
 import (
-	"fmt"
+	"strings"
 
-	"github.com/soubikbhuiwk007/ghve/auth"
-	"github.com/soubikbhuiwk007/ghve/vm"
+	"github.com/soubikbhuiwk007/ghsh/commands"
+	"github.com/soubikbhuiwk007/ghsh/exec"
+	"github.com/soubikbhuiwk007/ghsh/vm"
 )
-
-var (
-	VERSION string = "1.0.0" 
-)
-
-func help() {
-	fmt.Println(`Usage: ghve [arguments]
-	
-Options:
-	auth [argument]	:	Authenticate Ghve
-	 	-login	:	Login using Personal Token Access
-	 	-logout	:	Logout from the previous login
-	-v, version	:	Print Current Version
-	-h, help	:	Print Help (this)
-VE Commands:`)
-}
-func cmdNotFound(c string){
-	fmt.Printf("\nCommand '%v' not found\nTry running 'ghve help'", c)
-}
 
 func Cli(args []string) {
+	commands.RegisterAll()
 	if len(args) < 2 {
-		vm.VirtualEnv()
+		vm.Shell()
 	} else {
-		if args[1] == "auth" {
-			if args[2] == "-login" {
-				auth.Login()
-			} else if args[2] == "-logout" {
-				auth.Logout()
-			} else {
-				cmdNotFound(args[2])
-			}
-		} else if args[1] == "-v" || args[1] == "version" {
-			fmt.Printf("\nGhve: Version: %v\n", VERSION)
-		} else if args[1] == "-h" || args[1] == "help" {
-			help()
-		} else {
-			cmdNotFound(args[1])
-		}
+		exec.Exec(exec.GetArgs(strings.Join(args[1:], " ")))
 	}
 }

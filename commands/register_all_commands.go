@@ -1,18 +1,21 @@
 package commands
 
 import (
-	"github.com/soubikbhuiwk007/ghve/commands/exit" // command: exit
-	"github.com/soubikbhuiwk007/ghve/commands/ptoken" // command: get-token
-	"github.com/soubikbhuiwk007/ghve/commands/pwd" // command: pwd
-	"github.com/soubikbhuiwk007/ghve/commands/ls" // command: ls <repo|org|gist> <userid>
-	"github.com/soubikbhuiwk007/ghve/commands/cd" // command: cd <subdirectory>
-	"github.com/soubikbhuiwk007/ghve/commands/dir" // command: dir
-	"github.com/soubikbhuiwk007/ghve/commands/mkdir" // command: mkdir <> || <subdirectory>
-	"github.com/soubikbhuiwk007/ghve/commands/mkfile" // command: mkfile <> || <filename>
-	"github.com/soubikbhuiwk007/ghve/commands/rmdir" // command: rmdir <subdirectory|repository>
-	"github.com/soubikbhuiwk007/ghve/commands/rmfile" // command: rmdir <filename|gist-id>
-	"github.com/soubikbhuiwk007/ghve/commands/branch" // command: branch <command> <argument>
-	"github.com/soubikbhuiwk007/ghve/commands/fork" // command: fork <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/auth"   // by: @soubikbhuiwk007 command: auth <command>
+	"github.com/soubikbhuiwk007/ghsh/commands/branch" // by: @soubikbhuiwk007 command: branch <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/cd"     // by: @soubikbhuiwk007 command: cd <subdirectory>
+	"github.com/soubikbhuiwk007/ghsh/commands/dir"    // by: @soubikbhuiwk007 command: dir
+	"github.com/soubikbhuiwk007/ghsh/commands/exit"   // by: @soubikbhuiwk007 command: exit
+	"github.com/soubikbhuiwk007/ghsh/commands/fork"   // by: @soubikbhuiwk007 command: fork <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/ls"     // by: @soubikbhuiwk007 command: ls <repo|org|gist> <userid>
+	"github.com/soubikbhuiwk007/ghsh/commands/mkdir"  // by: @soubikbhuiwk007 command: mkdir <> || <subdirectory>
+	"github.com/soubikbhuiwk007/ghsh/commands/mkfile" // by: @soubikbhuiwk007 command: mkfile <> || <filename>
+	"github.com/soubikbhuiwk007/ghsh/commands/pr"     // by: @soubikbhuiwk007 command: pr <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/ptoken" // by: @soubikbhuiwk007 command: get-token
+	"github.com/soubikbhuiwk007/ghsh/commands/pwd"    // by: @soubikbhuiwk007 command: pwd
+	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"  // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
+	"github.com/soubikbhuiwk007/ghsh/commands/rmfile" // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
+	"github.com/soubikbhuiwk007/ghsh/commands/vsn"    // by: @soubikbhuiwk007 command: vsn
 )
 
 func RegisterAll() {
@@ -27,5 +30,8 @@ func RegisterAll() {
 	rmdir.Register() // Remove an existing Directory/Repository
 	rmfile.Register() // Remove an existing File/Gist
 	branch.Register() // Log/Change Branch of Repository
-	fork.Register() // Fork Repository
+	fork.Register() // Fork Repository/Gist
+	pr.Register() // Manage Pull Request
+	vsn.Register() // Version
+	auth.Register() // Authentication (login & logout)
 }

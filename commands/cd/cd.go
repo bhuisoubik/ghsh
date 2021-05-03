@@ -1,3 +1,6 @@
+// Command: cd
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package cd
 
 import (
@@ -6,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 
@@ -43,7 +46,7 @@ func getAllRepo() []string {
 }
 
 func movPathBack(c_path string) string {
-	if c_path != "/"{
+	if c_path != "/" {
 		c_path = string([]rune(c_path)[:len([]rune(c_path))-1])
 	}
 	for i := len(c_path) - 1; i >= 0; i-- {
@@ -62,7 +65,7 @@ func getRepoNameFromPath(path string) string {
 	return strings.Split(path, "/")[1]
 }
 
-func getDirContent(path string) []string{
+func getDirContent(path string) []string {
 	dirs := make([]string, 0)
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
@@ -70,7 +73,7 @@ func getDirContent(path string) []string{
 	)
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
-	_, dirContent, _, err  := client.Repositories.GetContents(ctx, config.UserName, getRepoNameFromPath(config.CWD), path, &github.RepositoryContentGetOptions{
+	_, dirContent, _, err := client.Repositories.GetContents(ctx, config.UserName, getRepoNameFromPath(config.CWD), path, &github.RepositoryContentGetOptions{
 		Ref: config.Branch,
 	})
 	if err != nil {
@@ -110,11 +113,11 @@ func Cd(args []string) {
 			config.IsInsideRepo = false
 			config.CurrentRepo = ""
 		} else {
-			config.IsInsideRepo =  true
+			config.IsInsideRepo = true
 		}
 	}
 }
 
 func Register() {
-	reg.RegisterNewCommand("cd",Cd)
+	reg.RegisterNewCommand("cd", Cd)
 }

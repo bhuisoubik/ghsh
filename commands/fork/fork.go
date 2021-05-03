@@ -1,3 +1,7 @@
+// Command: fork
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
+
 package fork
 
 import (
@@ -6,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 
@@ -21,7 +25,7 @@ func Fork(args []string) {
 	client := github.NewClient(oauth2.NewClient(ctx, ts))
 	if len(args) > 1 {
 		if args[1] == "repo" {
-			repo, _, err := client.Repositories.CreateFork(ctx, strings.Split(args[2],"/")[0], strings.Split(args[2],"/")[1], nil)
+			repo, _, err := client.Repositories.CreateFork(ctx, strings.Split(args[2], "/")[0], strings.Split(args[2], "/")[1], nil)
 			if err != nil {
 				fmt.Println(err)
 				fmt.Printf("Check out https://www.github.com/%v\n", repo.FullName)
@@ -35,7 +39,7 @@ func Fork(args []string) {
 			}
 		}
 	} else {
-		fmt.Println("Invalid Argument")
+		config.PrintError("Invalid Argument")
 	}
 }
 

@@ -1,3 +1,6 @@
+// Command: dir
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package dir
 
 import (
@@ -5,8 +8,8 @@ import (
 	"fmt"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 

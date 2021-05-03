@@ -1,14 +1,17 @@
+// Command: mkdir
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package mkdir
 
 import (
+	"bufio"
 	"context"
 	"fmt"
 	"os"
-	"bufio"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 
@@ -17,13 +20,13 @@ var token = config.AuthToken
 func repo() *github.Repository {
 	rd := bufio.NewReader(os.Stdin)
 	fmt.Print("Repository Name: ")
-	name,_, _ := rd.ReadLine()
+	name, _, _ := rd.ReadLine()
 	repoName := string(name)
 	fmt.Print("Description: ")
-	byteDesc, _,_ := rd.ReadLine()
+	byteDesc, _, _ := rd.ReadLine()
 	desc := string(byteDesc)
 	fmt.Print("Type (private | public): ")
-	vis,_, _ := rd.ReadLine()
+	vis, _, _ := rd.ReadLine()
 	mode := string(vis)
 	var private bool = true
 	if mode == "public" {
@@ -32,10 +35,10 @@ func repo() *github.Repository {
 	fmt.Print("HomePage URL: ")
 	homeUrl, _ := rd.ReadString('\n')
 	repo := &github.Repository{
-		Name: &repoName,
+		Name:        &repoName,
 		Description: &desc,
-		Private: &private,
-		Homepage: &homeUrl,
+		Private:     &private,
+		Homepage:    &homeUrl,
 	}
 	return repo
 }
@@ -46,8 +49,8 @@ func Mkdir(args []string) {
 		ts := oauth2.StaticTokenSource(
 			&oauth2.Token{AccessToken: token},
 		)
-		client := github.NewClient( oauth2.NewClient(ctx, ts))
-		newRepo,_,err:= client.Repositories.Create(ctx,"",repo())
+		client := github.NewClient(oauth2.NewClient(ctx, ts))
+		newRepo, _, err := client.Repositories.Create(ctx, "", repo())
 		if err != nil {
 			fmt.Println(err)
 		} else {
@@ -66,7 +69,7 @@ func Mkdir(args []string) {
 			opts := github.RepositoryContentFileOptions{
 				Message: &msg,
 				Content: []byte(" "),
-				Branch: &config.Branch,
+				Branch:  &config.Branch,
 			}
 			_, _, err := client.Repositories.CreateFile(ctx, config.UserName, config.CurrentRepo, folderPath, &opts)
 			if err != nil {
@@ -75,7 +78,7 @@ func Mkdir(args []string) {
 				fmt.Printf("Directory '%v' is created successfully\n", args[1])
 			}
 		} else {
-			fmt.Println("Invalid Argument")
+			config.PrintError("Invalid Argument")
 		}
 	}
 }

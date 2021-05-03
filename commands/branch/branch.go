@@ -1,3 +1,6 @@
+// Command: branch
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package branch
 
 import (
@@ -5,8 +8,8 @@ import (
 	"fmt"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 
@@ -19,7 +22,7 @@ func listBranch() []string {
 		&oauth2.Token{AccessToken: token},
 	)
 	client := github.NewClient(oauth2.NewClient(ctx, ts))
-	branchList,_, err := client.Repositories.ListBranches(ctx, config.UserName, config.CurrentRepo, nil)
+	branchList, _, err := client.Repositories.ListBranches(ctx, config.UserName, config.CurrentRepo, nil)
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -54,7 +57,7 @@ func Branch(args []string) {
 			}
 		}
 	} else {
-		fmt.Println("Invalid Argument || Invalid State")
+		config.PrintError("Invalid Argument || Invalid State")
 	}
 }
 

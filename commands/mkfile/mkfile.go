@@ -1,3 +1,6 @@
+// Command: mkfile
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package mkfile
 
 import (
@@ -9,8 +12,8 @@ import (
 	"path/filepath"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 
@@ -28,16 +31,16 @@ func gistConfig() *github.Gist {
 		public = true
 	}
 	gistContent := make(map[github.GistFilename]github.GistFile)
-	for i := 0; i < i + 1; i++ {
+	for i := 0; i < i+1; i++ {
 		fmt.Printf("Path [%v]: ", i)
-		bytePath,_,_ := rd.ReadLine()
+		bytePath, _, _ := rd.ReadLine()
 		if string(bytePath) == "" {
 			break
 		} else {
 			fileByteContent, err := ioutil.ReadFile(string(bytePath))
 			if err != nil {
 				fmt.Println(err)
-			} else {				
+			} else {
 				fileContent := string(fileByteContent)
 				filename := github.GistFilename(filepath.Base(string(bytePath)))
 				file := github.GistFile{
@@ -49,8 +52,8 @@ func gistConfig() *github.Gist {
 	}
 	return &github.Gist{
 		Description: &desc,
-		Public: &public,
-		Files: gistContent,
+		Public:      &public,
+		Files:       gistContent,
 	}
 }
 
@@ -61,7 +64,7 @@ func Mkfile(args []string) {
 			&oauth2.Token{AccessToken: token},
 		)
 		client := github.NewClient(oauth2.NewClient(ctx, ts))
-		gist,_, err := client.Gists.Create(ctx, gistConfig())
+		gist, _, err := client.Gists.Create(ctx, gistConfig())
 		if err != nil {
 			fmt.Println(err)
 		} else {
@@ -79,7 +82,7 @@ func Mkfile(args []string) {
 			opts := github.RepositoryContentFileOptions{
 				Message: &commitMsg,
 				Content: []byte(" "),
-				Branch: &config.Branch,
+				Branch:  &config.Branch,
 			}
 			_, _, err := client.Repositories.CreateFile(ctx, config.UserName, config.CurrentRepo, filePath, &opts)
 			if err != nil {
@@ -88,7 +91,7 @@ func Mkfile(args []string) {
 				fmt.Printf("File '%v' is created successfully\n", args[1])
 			}
 		} else {
-			fmt.Println("Invalid Argument")
+			config.PrintError("Invalid Argument")
 		}
 	}
 }

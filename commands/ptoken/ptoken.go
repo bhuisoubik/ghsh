@@ -1,10 +1,13 @@
+// Command: get-token
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
 package ptoken
 
 import (
 	"fmt"
 
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 )
 
 func Ptoken(args []string) {
@@ -17,5 +20,5 @@ func Ptoken(args []string) {
 }
 
 func Register() {
-	reg.RegisterNewCommand("get-token",Ptoken)
+	reg.RegisterNewCommand("get-token", Ptoken)
 }

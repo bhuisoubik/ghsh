@@ -1,3 +1,7 @@
+// Command: rmdir
+// (c) Soubik Bhui <@soubikbhuiwk007> 2020
+
+
 package rmdir
 
 import (
@@ -5,8 +9,8 @@ import (
 	"fmt"
 
 	"github.com/google/go-github/v35/github"
-	"github.com/soubikbhuiwk007/ghve/reg"
-	"github.com/soubikbhuiwk007/ghve/vm/config"
+	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/vm/config"
 	"golang.org/x/oauth2"
 )
 
@@ -67,19 +71,19 @@ func Rmdir(args []string) {
 			fList, shaList := getAllFiles(config.Repo_Path + args[1])
 			for i := 0; i < len(fList); i++ {
 				opts := &github.RepositoryContentFileOptions{
-					SHA: &shaList[i],
+					SHA:     &shaList[i],
 					Message: &msg,
-					Branch: &config.Branch,
+					Branch:  &config.Branch,
 				}
 				_, _, err := client.Repositories.DeleteFile(ctx, config.UserName, config.CurrentRepo, fList[i], opts)
 				if err != nil {
 					fmt.Println(err)
 				}
-			} 
+			}
 			fmt.Printf("Directory '%v' deleted successfully", args[1])
 		}
 	} else {
-		fmt.Println("Invalid Argument")
+		config.PrintError("Invalid Argument")
 	}
 }
 
