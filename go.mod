@@ -1,4 +1,4 @@
-module github.com/soubikbhuiwk007/ghve
+module github.com/soubikbhuiwk007/ghsh
 
 go 1.16
 

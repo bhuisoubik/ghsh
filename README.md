@@ -4,4 +4,6 @@
 </div>
 <br>
 
-`ghsh` is a cross-platform Github shell available for Windows, Linux and MacOS. It is not another `github cli` ofc. It is extensible i.e. you can easily create & add your own commands. Checkout [Get Started](#Get-Started).
+`ghsh` (or Github shell) is a command line tool available for windows, linux and macos. It is not another `github cli` ofc. It is extensible so you can easily create & add your own commands. You can go into specific folder and edit files right there and it will be directly saved to your online repository so that you don't have to save locally and later update the repository.
+
+## Get Started

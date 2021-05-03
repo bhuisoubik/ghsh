@@ -2,7 +2,8 @@ package main
 
 import (
 	"os"
-	"github.com/soubikbhuiwk007/ghve/cmd"
+
+	"github.com/soubikbhuiwk007/ghsh/cmd"
 )
 
 func main() {
