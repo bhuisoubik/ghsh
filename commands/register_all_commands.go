@@ -16,10 +16,11 @@ import (
 	"github.com/soubikbhuiwk007/ghsh/commands/pr"      // by: @soubikbhuiwk007 command: pr <command> <argument>
 	"github.com/soubikbhuiwk007/ghsh/commands/ptoken"  // by: @soubikbhuiwk007 command: get-token
 	"github.com/soubikbhuiwk007/ghsh/commands/pwd"     // by: @soubikbhuiwk007 command: pwd
+	"github.com/soubikbhuiwk007/ghsh/commands/readme"  // by: @soubikbhuiwk007 comamnd: readme
 	"github.com/soubikbhuiwk007/ghsh/commands/rls"     // by: @soubikbhuiwk007 command: rls <command> <argument>
-	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"  // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
-	"github.com/soubikbhuiwk007/ghsh/commands/rmfile" // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
-	"github.com/soubikbhuiwk007/ghsh/commands/vsn"    // by: @soubikbhuiwk007 command: vsn
+	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"   // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
+	"github.com/soubikbhuiwk007/ghsh/commands/rmfile"  // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
+	"github.com/soubikbhuiwk007/ghsh/commands/vsn"     // by: @soubikbhuiwk007 command: vsn
 )
 
 func RegisterAll() {
@@ -42,4 +43,5 @@ func RegisterAll() {
 	commits.Register() // List Repository Commits (By Specific User)
 	issue.Register() // Repo-Isuues
 	rls.Register() // Manage Repo Release
+	readme.Register() // View README.md of Repo
 }
