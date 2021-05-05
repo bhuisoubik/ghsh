@@ -7,10 +7,11 @@ import (
 	"fmt"
 
 	"github.com/soubikbhuiwk007/ghsh/reg"
+	"github.com/soubikbhuiwk007/ghsh/version"
 )
 
 func Vsn(args []string) {
-	fmt.Println("ghsh: Version: 1.0.0")
+	fmt.Printf("ghsh: Version: %v\n", version.CurrentVersion)
 }
 
 func Register() {

@@ -18,6 +18,7 @@ import (
 	"github.com/soubikbhuiwk007/ghsh/commands/vsn"     // by: @soubikbhuiwk007 command: vsn
 	"github.com/soubikbhuiwk007/ghsh/commands/about"   // by: @soubikbhuiwk007 command: about
 	"github.com/soubikbhuiwk007/ghsh/commands/commits" // by: @soubikbhuiwk007 command: commits <arguments>
+	"github.com/soubikbhuiwk007/ghsh/commands/issue"   // by: @soubikbhuiwk007 command: issue <command> <arguments>
 )
 
 func RegisterAll() {
@@ -38,4 +39,5 @@ func RegisterAll() {
 	auth.Register() // Authentication (login & logout)
 	about.Register() // About
 	commits.Register() // List Repository Commits (By Specific User)
+	issue.Register() // Repo-Isuues
 }
