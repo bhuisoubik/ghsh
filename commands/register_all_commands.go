@@ -21,6 +21,7 @@ import (
 	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"   // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
 	"github.com/soubikbhuiwk007/ghsh/commands/rmfile"  // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
 	"github.com/soubikbhuiwk007/ghsh/commands/vsn"     // by: @soubikbhuiwk007 command: vsn
+	"github.com/soubikbhuiwk007/ghsh/commands/fs"      // by: @soubikbhuiwk007 command: fs <command> <argument>
 )
 
 func RegisterAll() {
@@ -44,4 +45,5 @@ func RegisterAll() {
 	issue.Register() // Repo-Isuues
 	rls.Register() // Manage Repo Release
 	readme.Register() // View README.md of Repo
+	fs.Register() // Read/Write Files
 }
