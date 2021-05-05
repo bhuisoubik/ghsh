@@ -1,4 +1,4 @@
-// Command: fork
+// Command: issue
 // (c) Soubik Bhui <@soubikbhuiwk007> 2021
 
 package issue
