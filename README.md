@@ -17,3 +17,6 @@ go install github.com/soubikbhuiwk007/ghsh
 ```
 
 ### Using Pre-Build Binaries
+
+## Get Started
+Print the current version using the `vsn` command
