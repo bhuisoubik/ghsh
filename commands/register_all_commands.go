@@ -9,19 +9,20 @@ import (
 	"github.com/soubikbhuiwk007/ghsh/commands/dir"     // by: @soubikbhuiwk007 command: dir
 	"github.com/soubikbhuiwk007/ghsh/commands/exit"    // by: @soubikbhuiwk007 command: exit
 	"github.com/soubikbhuiwk007/ghsh/commands/fork"    // by: @soubikbhuiwk007 command: fork <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/fs"      // by: @soubikbhuiwk007 command: fs <command> <argument>
 	"github.com/soubikbhuiwk007/ghsh/commands/issue"   // by: @soubikbhuiwk007 command: issue <command> <arguments>
 	"github.com/soubikbhuiwk007/ghsh/commands/ls"      // by: @soubikbhuiwk007 command: ls <repo|org|gist> <userid>
-	"github.com/soubikbhuiwk007/ghsh/commands/mkdir"   // by: @soubikbhuiwk007 command: mkdir <> || <subdirectory>
-	"github.com/soubikbhuiwk007/ghsh/commands/mkfile"  // by: @soubikbhuiwk007 command: mkfile <> || <filename>
-	"github.com/soubikbhuiwk007/ghsh/commands/pr"      // by: @soubikbhuiwk007 command: pr <command> <argument>
-	"github.com/soubikbhuiwk007/ghsh/commands/ptoken"  // by: @soubikbhuiwk007 command: get-token
-	"github.com/soubikbhuiwk007/ghsh/commands/pwd"     // by: @soubikbhuiwk007 command: pwd
-	"github.com/soubikbhuiwk007/ghsh/commands/readme"  // by: @soubikbhuiwk007 comamnd: readme
-	"github.com/soubikbhuiwk007/ghsh/commands/rls"     // by: @soubikbhuiwk007 command: rls <command> <argument>
-	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"   // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
-	"github.com/soubikbhuiwk007/ghsh/commands/rmfile"  // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
-	"github.com/soubikbhuiwk007/ghsh/commands/vsn"     // by: @soubikbhuiwk007 command: vsn
-	"github.com/soubikbhuiwk007/ghsh/commands/fs"      // by: @soubikbhuiwk007 command: fs <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/man"	   // by: @soubikbhuiwk007 command: man <command>
+	"github.com/soubikbhuiwk007/ghsh/commands/mkdir"  // by: @soubikbhuiwk007 command: mkdir <> || <subdirectory>
+	"github.com/soubikbhuiwk007/ghsh/commands/mkfile" // by: @soubikbhuiwk007 command: mkfile <> || <filename>
+	"github.com/soubikbhuiwk007/ghsh/commands/pr"     // by: @soubikbhuiwk007 command: pr <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/ptoken" // by: @soubikbhuiwk007 command: get-token
+	"github.com/soubikbhuiwk007/ghsh/commands/pwd"    // by: @soubikbhuiwk007 command: pwd
+	"github.com/soubikbhuiwk007/ghsh/commands/readme" // by: @soubikbhuiwk007 comamnd: readme
+	"github.com/soubikbhuiwk007/ghsh/commands/rls"    // by: @soubikbhuiwk007 command: rls <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/rmdir"  // by: @soubikbhuiwk007 command: rmdir <subdirectory|repository>
+	"github.com/soubikbhuiwk007/ghsh/commands/rmfile" // by: @soubikbhuiwk007 command: rmdir <filename|gist-id>
+	"github.com/soubikbhuiwk007/ghsh/commands/vsn"    // by: @soubikbhuiwk007 command: vsn
 )
 
 func RegisterAll() {
@@ -46,4 +47,5 @@ func RegisterAll() {
 	rls.Register() // Manage Repo Release
 	readme.Register() // View README.md of Repo
 	fs.Register() // Read/Write Files
+	man.Register() // Manual
 }
