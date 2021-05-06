@@ -17,7 +17,7 @@
 * [mkdir](../commands/mkdir/README.md)
 * [mkfile](../commands/mkfile/README.md)
 * [pr](../commands/man/pr.md)
-* [get-token](../commands/ptoken/README.md)
+* [ptoken](../commands/ptoken/README.md)
 * [pwd](../commands/pwd/README.md)
 * [readme](../commands/readme/README.md)
 * [rls](../commands/rls/README.md)
