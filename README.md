@@ -6,13 +6,18 @@
 
 <img alt="about" src="docs/images/about.png">
 
-`ghsh` (or Github shell) is a command line tool available for windows, linux and macos. It is not another `github cli` ofc. It is extensible so you can easily create & add your own commands. You can go into specific folder and edit files right there. Its made using [Go Github API](https://github.com/google/go-github)
+`ghsh` (or Github shell) is a command line tool available for windows, linux and macos. It is not another `github cli` ofc. It is extensible so you can easily create & add your own commands. You can go into specific folder and edit files right there.
 
-## Installation
+## Get Started
 
-### Using Go-sdk
+### Using `curl`
+
 ```shell
-go install github.com/soubikbhuiwk007/ghsh@master
+curl -s -L https://www.github.com/soubikbhuiwk007/ghsh/x/install.sh | bash
 ```
 
-### Using Pre-Build Binaries
+### Using Docker
+
+```
+docker run
+```

@@ -1,3 +1,6 @@
+// Command: gc
+// (c) Soubik Bhui <@soubikbhuiwk007> 2021
+
 package gc
 
 import (
