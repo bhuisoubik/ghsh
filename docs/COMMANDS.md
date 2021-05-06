@@ -11,6 +11,7 @@
 * [exit](../commands/exit/README.md)
 * [fork](../commands/fork/README.md)
 * [fs](../commands/fs/README.md)
+* [gc](../commands/gc/README.md)
 * [issue](../commands/issue/README.md)
 * [ls](../commands/ls/README.md)
 * [man](../commands/man/README.md)
