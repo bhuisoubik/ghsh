@@ -20,5 +20,5 @@ func Ptoken(args []string) {
 }
 
 func Register() {
-	reg.RegisterNewCommand("get-token", Ptoken)
+	reg.RegisterNewCommand("ptoken", Ptoken)
 }

@@ -1,12 +1,12 @@
-### Command: `get-token`
+### Command: `ptoken`
 
 Print the authorised token
 
 ### Usage
-`get-token`
+`ptoken`
 
 ```shell
-$ ghsh: @username / > get-token
+$ ghsh: @username / > ptoken
 ```
 
 If no token is authorised
