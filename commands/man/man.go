@@ -1,6 +1,7 @@
 package man
 
 import (
+	"fmt"
 	"os/exec"
 	"runtime"
 
@@ -8,7 +9,7 @@ import (
 )
 
 func Man(args []string) {
-	url := "https://github.com/soubikbhuiwk007/ghsh/blob/master/docs/COMMANDS.md#" + args[1]
+	url := fmt.Sprintf("https://github.com/soubikbhuiwk007/ghsh/blob/master/commands/%v/README.md", args[1])
 	switch runtime.GOOS {
 	case "windows" :
 		exec.Command("cmd", "/c", "start", url).Start()
