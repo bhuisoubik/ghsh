@@ -11,8 +11,8 @@
 ## Installation
 
 ### Using Go-sdk
-```
-go install github.com/soubikbhuiwk007/ghsh
+```shell
+go install github.com/soubikbhuiwk007/ghsh@master
 ```
 
 ### Using Pre-Build Binaries
