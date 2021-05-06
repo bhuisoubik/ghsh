@@ -1,6 +1,6 @@
 ## Documentation
 
-#### `ghsh` is a cross-platform Github shell. It is not another `github cli` ofc. It is extensible i.e. you can easily create & add your own commands. Checkout [Get Started](#Get-Started).
+#### This is the documentation of `ghsh`
 
 ### Get Started
 **Installation**
