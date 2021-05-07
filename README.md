@@ -1,8 +1,4 @@
-<div style="display:flex;">
-    <img src="ghsh@512x512.png" alt="logo" width="100"> 
-    <h1 style="margin-left: 15px">Github Shell</h1>
-</div>
-<br>
+# GitHub Shell
 
 <img alt="about" src="docs/images/about.png">
 
@@ -16,17 +12,19 @@
 go install github.com/soubikbhuiwk007/ghsh/@latest
 ```
 
-### Using Pre-Build Binaries
+### Using Package Manager
 
-|OS|Architecture|File|
-|:-:|:---------:|:--:|
-|`windows`|`amd64`||
-|`darwin`|`amd64`||
-|`darwin`|`arm`||
-|`darwin`|`arm64`||
-|`linux`|`amd64`||
-|`linux`|`arm`||
-|`linux`|`arm64`||
+|OS|Command|
+|:-:|:----:|
+|`windows`|`choco install ghsh`||
+|`darwin`|`brew install ghsh`||
+|`linux`|`apt-get install ghsh`||
+
+### Using Installer
+|OS|File|
+|:-:|:--:|
+|`windows`||
+|`linux`||
 
 ## Get Started
 Run the following to authorise `ghsh`
@@ -34,3 +32,23 @@ Run the following to authorise `ghsh`
 $ ghsh auth -login
 ```
 
+Checkout the list of all the available [Commands](docs/COMMANDS.md) & the [Documentation](docs/README.md)
+
+There are 2 ways to execute commands
+
+* From command line arguments. You can run this from your terminal.
+
+```shell
+$ ghsh <command-name> <arguments>
+```
+
+* Inside `ghsh`
+
+```
+$ ghsh: @username / > <command-name> <arguments>
+```
+
+> Some Commands can only be used inside a repository
+
+
+**This Project licensed under MIT**
