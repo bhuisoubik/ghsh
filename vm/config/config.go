@@ -4,14 +4,15 @@ import (
 	"context"
 	"fmt"
 	"io/ioutil"
+	"os/user"
+	"path/filepath"
 
 	"github.com/google/go-github/v35/github"
 	"golang.org/x/oauth2"
 )
 
 func getuserid() *string {
-	byteToken, _ := ioutil.ReadFile("auth/.gh_access_token")
-	token := string(byteToken)
+	token := getAuthToken()
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
@@ -23,9 +24,10 @@ func getuserid() *string {
 }
 
 func getAuthToken() string {
-	byteToken, _ := ioutil.ReadFile("auth/.gh_access_token")
-	token := string(byteToken)
-	return token
+	user, _ := user.Current()
+	authFname := filepath.Join(user.HomeDir, ".ghsh_auth_token")
+	byteToken, _ := ioutil.ReadFile(authFname)
+	return string(byteToken)
 }
 
 func GetFirstBranch(repo string) string {

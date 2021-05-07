@@ -25,6 +25,7 @@ import (
 	"github.com/soubikbhuiwk007/ghsh/commands/vsn"    // by: @soubikbhuiwk007 command: vsn
 	"github.com/soubikbhuiwk007/ghsh/commands/gc" // by: @soubikbhuiwk007 command gc <command> <argument>
 	"github.com/soubikbhuiwk007/ghsh/commands/ge" // by: @soubikbhuiwk007 command ge <command> <argument>
+	"github.com/soubikbhuiwk007/ghsh/commands/gv" // by: @soubikbhuiwk007 command ge <argument>
 )
 
 func RegisterAll() {
@@ -52,4 +53,5 @@ func RegisterAll() {
 	man.Register() // Manual
 	gc.Register() // Gist Comments
 	ge.Register() // Gist Edit
+	gv.Register() // Gist View
 }

@@ -13,6 +13,7 @@
 * [fs](../commands/fs/README.md)
 * [gc](../commands/gc/README.md)
 * [ge](../commands/ge/README.md)
+* [gv](../commands/gv/README.md)
 * [issue](../commands/issue/README.md)
 * [ls](../commands/ls/README.md)
 * [man](../commands/man/README.md)

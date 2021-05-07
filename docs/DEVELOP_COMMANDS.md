@@ -5,6 +5,8 @@
 
 #### Get-Source
 
+
+
 #### Steps:
 
 Create a folder (named as the command name) in the `/commands/` directory.
@@ -49,5 +51,7 @@ func RegisterAll() {
 ```
 
 :zap: And Done !!! :zap:
+
+Also try to make a [pull request](../CONTRIBUTING.md)
 
 ***
