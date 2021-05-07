@@ -16,15 +16,9 @@ go install github.com/soubikbhuiwk007/ghsh/@latest
 
 |OS|Command|
 |:-:|:----:|
-|`windows`|`choco install ghsh`||
-|`darwin`|`brew install ghsh`||
-|`linux`|`apt-get install ghsh`||
-
-### Using Installer
-|OS|File|
-|:-:|:--:|
-|`windows`||
-|`linux`||
+|`windows`|`choco install ghsh`|
+|`darwin`|`brew install ghsh`|
+|`linux`|`apt-get install ghsh`|
 
 ## Get Started
 Run the following to authorise `ghsh`
