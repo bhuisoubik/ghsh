@@ -23,7 +23,8 @@ go install github.com/soubikbhuiwk007/ghsh/@latest
 |`windows`|`amd64`||
 
 ## Get Started
-Run `ghsh` and type `vsn` to get current version
+Run the following to authorise `ghsh`
 ```shell
-$ ghsh: @username / > vsn
+$ ghsh auth -login
 ```
+
