@@ -21,6 +21,12 @@ go install github.com/soubikbhuiwk007/ghsh/@latest
 |OS|Architecture|File|
 |:-:|:---------:|:--:|
 |`windows`|`amd64`||
+|`darwin`|`amd64`||
+|`darwin`|`arm`||
+|`darwin`|`arm64`||
+|`linux`|`amd64`||
+|`linux`|`arm`||
+|`linux`|`arm64`||
 
 ## Get Started
 Run the following to authorise `ghsh`
