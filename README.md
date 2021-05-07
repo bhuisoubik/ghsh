@@ -50,4 +50,4 @@ $ ghsh: @username / > <command-name> <arguments>
 
 > Some Commands can only be used inside a repository
 
-**This Project licensed under MIT**
+**This Project licensed under [MIT](./LICENSE)**
