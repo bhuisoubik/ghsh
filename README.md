@@ -6,6 +6,8 @@
 
 ## Installation
 
+There are several ways to install `ghsh`
+
 ### Using Go sdk
 
 ```shell
