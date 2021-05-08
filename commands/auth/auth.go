@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"os/user"
 	"path/filepath"
 	"syscall"
@@ -72,6 +73,7 @@ func Auth(args []string) {
 			Login()
 		} else if args[1] == "-logout" {
 			Logout()
+			os.Exit(0)
 		} else {
 			fmt.Println("Invalid Argument")
 		}

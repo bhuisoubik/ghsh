@@ -19,14 +19,23 @@ func getuserid() *string {
 	)
 	
 	client := github.NewClient(oauth2.NewClient(ctx, ts))
-	user, _, _ := client.Users.Get(ctx, "")
-	return user.Login
+	user, _, err := client.Users.Get(ctx, "")
+	var un string
+	if err != nil {
+		un = ""
+	} else {
+		un = *user.Login
+	}
+	return &un
 }
 
 func getAuthToken() string {
 	user, _ := user.Current()
 	authFname := filepath.Join(user.HomeDir, ".ghsh_auth_token")
 	byteToken, _ := ioutil.ReadFile(authFname)
+	if len(byteToken) < 1 {
+		return ""
+	}
 	return string(byteToken)
 }
 

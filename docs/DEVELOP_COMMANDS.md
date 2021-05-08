@@ -4,8 +4,11 @@
 * Go-sdk 1.16.x
 
 #### Get-Source
-
-
+```shell
+mkdir $GOPATH/src/github.com/soubikbhuiwk007
+cd $GOPATH/src/github.com/soubikbhuiwk007
+git clone https://www.github.com/soubikbhuiwk007/ghsh
+```
 
 #### Steps:
 
