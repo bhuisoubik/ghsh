@@ -33,13 +33,13 @@ There are 2 ways to execute commands
 * From command line arguments. You can run this from your terminal.
 
 ```shell
-$ ghsh <command-name> <arguments>
+$ ghsh [command-name] [arguments...]
 ```
 
 * Inside `ghsh`
 
 ```
-$ ghsh: @username / > <command-name> <arguments>
+$ ghsh: @username / > command-name [arguments...]
 ```
 
 > Some Commands can only be used inside a repository
