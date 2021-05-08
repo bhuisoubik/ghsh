@@ -28,14 +28,14 @@ if not errorlevel 1 echo It seems like Go isn't installed.
 
 :build
     echo Building ghsh using go..
-    go build -o ../../ghsh ../../main.go
+    go build -o ../../ghsh.exe ../../main.go
     echo Completed
     pause
 exit
 
 :install
     echo Installing ghsh using go..
-    go install -o ../../ghsh ../../main.go
+    go install -o ../../ghsh.exe ../../main.go
     echo Completed
     pause
 exit
