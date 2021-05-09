@@ -14,14 +14,15 @@ There are several ways to install `ghsh`
 go install github.com/soubikbhuiwk007/ghsh/@latest
 ```
 
-### Using Package Manager
+### Windows (Powershell)
 
-|OS|Command|
-|:-:|:----:|
-|`windows`|`choco install ghsh`|
-|`darwin`|`brew install ghsh`|
-|`linux`|`apt-get install ghsh`|
+```
+```
 
+### MacOS/Linux (brew) 
+
+```
+```
 ## Get Started
 Run the following to authorise `ghsh`
 ```shell

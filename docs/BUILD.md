@@ -17,8 +17,8 @@ git clone https://www.github.com/soubikbhuiwk007/ghsh
 Execute the build script.
 
 * Windows (cmd)
-```shell
-x/build/build.bat -b
+```batch
+x\build\build -b
 ```
 
 * UNIX/Linux (bash)
