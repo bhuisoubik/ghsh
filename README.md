@@ -27,7 +27,7 @@ go install github.com/soubikbhuiwk007/ghsh@latest
 * Open the `.bashrc` file in your `home` directory and add `export PATH="path/to/folder:$PATH"` to the last line of the file.
 * Save the file & restart your terminal
 
-### MacOS
+### MacOS (darwin)
 
 * Download the tar.gz file from Releases
 * Extract the file.
