@@ -2,22 +2,6 @@
 
 #### `ghsh` is a cross-platform Github shell. It is not another `github cli` ofc. It is extensible i.e. you can easily create & add your own commands. Checkout [Get Started](#Get-Started).
 
-## Installation
-
-### Using Go sdk
-
-```shell
-go install github.com/soubikbhuiwk007/ghsh/@latest
-```
-
-### Using Package Manager
-
-|OS|Command|
-|:-:|:----:|
-|`windows`|`choco install ghsh`|
-|`darwin`|`brew install ghsh`|
-|`linux`|`apt-get install ghsh`|
-
 ### Build
 
 **Refer to [Build.md](docs/BUILD.md)**
