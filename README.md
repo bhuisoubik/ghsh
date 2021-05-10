@@ -10,8 +10,8 @@ There are several ways to install `ghsh`. You can also download the release bina
 
 ### Windows (Powershell)
 
-```
-
+```powershell
+iex ((New-Object System.Net.WebClient).DownloadString(''))
 ```
 
 ### Linux 
