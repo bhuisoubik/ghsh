@@ -7,9 +7,9 @@
 # Go sdk 1.16.x
 
 # Steps
-# run 'bash build.sh -b' in terminal for Building
-# run 'bash build.sh -i' in terminal for Installing using Go
-# run 'bash build.sh -d' in terminal for getting all dependencies
+# run 'bash build.bash -b' in terminal for Building
+# run 'bash build.bash -i' in terminal for Installing using Go
+# run 'bash build.bash -d' in terminal for getting all dependencies
 
 if command -v "go" >/dev/null 2>&1 ; then # Check go is installed or not 
     if [ "$1" == "-b" ]; then # -b flag to build ghsh

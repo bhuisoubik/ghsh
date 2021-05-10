@@ -11,18 +11,29 @@ There are several ways to install `ghsh`
 ### Using Go sdk
 
 ```shell
-go install github.com/soubikbhuiwk007/ghsh/@latest
+go install github.com/soubikbhuiwk007/ghsh@latest
 ```
 
 ### Windows (Powershell)
 
 ```
-```
-
-### MacOS/Linux (brew) 
 
 ```
-```
+
+### Linux 
+
+* Download the tar.gz file from Releases
+* Extract the file.
+* Open the `.bashrc` file in your `home` directory and add `export PATH="path/to/folder:$PATH"` to the last line of the file.
+* Save the file & restart your terminal
+
+### MacOS
+
+* Download the tar.gz file from Releases
+* Extract the file.
+* Open the `.bash_profile` file in your `home` directory and add `export PATH="path/to/folder:$PATH"` to the last line of the file.
+* Save the file & restart your terminal
+
 ## Get Started
 Run the following to authorise `ghsh`
 ```shell
