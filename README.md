@@ -6,7 +6,7 @@
 
 ## Installation
 
-There are several ways to install `ghsh`. You can also download the release binary from the [Release Page]()
+There are several ways to install `ghsh`. You can also download the release binary from the [Release Page](https://github.com/soubikbhuiwk007/ghsh/releases/)
 
 ### Windows (Powershell)
 
