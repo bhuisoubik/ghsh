@@ -1,5 +1,5 @@
 // Version when modified should be in the following format :
-// major.minor.revision
+// major.minor.patch
 //   1  .  0  .    0
 
 package version
