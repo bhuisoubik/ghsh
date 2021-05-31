@@ -33,6 +33,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/soubik
 ### Using Go sdk
 
 ```shell
+go get -u github.com/soubikbhuiwk007/ghsh@latest
 go install github.com/soubikbhuiwk007/ghsh@latest
 ```
 
